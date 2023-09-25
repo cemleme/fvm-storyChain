@@ -30,6 +30,7 @@ const generate = async ({ category, imageStyleid, imagePrompt }) => {
   const style = styles.length > imageStyleid ? styles[imageStyleid] : styles[0];
 
   let positivePrompt = style + " " + imagePrompt;
+  positivePrompt = positivePrompt.replaceAll("'", "");
   if (category === 0) positivePrompt = "kids story. " + positivePrompt;
 
   const seed = Math.floor(Math.random() * 1000000 + 1);
